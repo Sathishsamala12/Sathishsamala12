@@ -1,0 +1,33 @@
+//Pagination Html
+
+
+<p-table [columns]="cols" [value]="allHeadsets" [paginator]="true" [rows]="3" [rowsPerPageOptions]="[5,10,15,20]"
+  [totalRecords]="totalRecords" [pageLinks]="5">
+  <ng-template pTemplate="header" let-columns>
+    <tr>
+      <th *ngFor="let col of columns">
+        {{col.header}}
+      </th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-rowData let-columns="columns">
+    <tr>
+      <td *ngFor="let col of columns">
+        {{rowData[col.field]}}
+      </td>
+    </tr>
+  </ng-template>
+</p-table>
+
+// .ts
+
+   this.cols = [
+      { field: 'Id', header: 'Id' },
+      {field: 'BrandName', header: 'BrandName' },
+      { field: 'Model', header: 'Model' } ,
+      { field: 'Colour', header: 'Colour' },
+      {field: 'Bluetooth', header: 'Bluetooth' },     
+      { field: 'Price', header: 'Price' }
+  ];
+  
+  this.totalRecords=this.allHeadsets.length; 

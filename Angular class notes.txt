@@ -1,0 +1,84 @@
+What is angular?
+It is frontend framework and building blocks of components
+What is component?
+It is combination of html,ts files.
+Ex:
+User.component.html
+User.component.ts
+User.component.css
+User.component.spec.ts
+
+DataBinding :data transfer html to ts and ts to html
+Component :When we are applying Component metadata on class
+The class converts to component
+Ex :
+
+
+
+
+Import { Component } from ‘@angular/Core’
+@Component(
+Selector :’User’,
+TemplateUrl:’’
+
+}
+Export class UserComponent{
+
+
+
+}
+
+Selector : it used to use component as element in another component
+TemplateUrl: it used bind html and ts file
+Template: we can html in string format 
+It have constructor 
+We are using constructor dependency injection
+
+DataBinding :data transfer html to ts and ts to html
+It is two types
+1.One way data binding 
+    html to ts
+              Event Binding
+    ts to html
+             Interpolation 
+             Property Binding
+             Attribute Binding
+             Style Binding
+             Class Binding 
+2.Two databinding 
+   Htmlts
+
+Event Binding
+Html elements have different types of events 
+Button click
+Inputblur,input,keyup,keydown
+Binding methods to event action ,
+
+Html
+ <button  (click)=”Save()”> Save</button>
+
+ts 
+Save(){
+//code 
+}
+
+InterPolation 
+data read from ts to html 
+ts 
+username:string =’kumar’;
+html
+{{  username }}
+{{1+4}}            out 5
+
+Property binding 
+Html elements have properties,we can add or remove properties dynamically with help of Property binding 
+Ex:
+Text box property readonly
+If readonly true  we can edit or add values in textbox
+HTML
+<intput type=”text” [required]=”isedit”>
+TS
+Isedit:bool=true;
+
+https://www.positronx.io/angular-pdf-tutorial-export-pdf-in-angular-with-jspdf/
+

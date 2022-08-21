@@ -1,0 +1,30 @@
+
+
+employee deportment empId
+
+
+selec * from employee as e
+
+full outer join deportment as d
+
+On e.empId=d.empId
+
+
+
+
+selec * from employee as e
+
+join deportment as d
+
+where e.empId=d.empId
+
+
+
+string s="India wer wer";
+
+var outs = s.split(' ').ToString();
+
+
+
+
+

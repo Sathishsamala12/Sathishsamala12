@@ -1,0 +1,327 @@
+create database [Person]
+
+create table [PersonDetails](
+[PersonId](int) primary key identity (1,1) 
+[FirstName] [varchar](max) null,
+[LastName] [varchar](max)null,
+[DOB] [date]null,
+[GenderId][int]null,
+[AddressId][varchar](max)null,
+[PinCode][int]null,
+[ContactNumberId][bigint]null,
+[E-MailId][varchar](max)null,
+[Nationality][varchar](max)null,
+[MotherToungeId][int]null,
+[ReligionId][int]null,
+[CasteId][int]null,
+[Sub-CasteId][int]null,
+[ContinentId][int]null, 
+[CountryId][int]null,
+[StateId][int]null,
+[DistrictId][int]null,
+[IdentificationMarks][varchar]null,
+[MaritalStatusId][varchar]null,
+[PhotoUploadId][varchar](max)null
+[BloodGroupId][varchar](max)null)
+
+insert into [PersonDetails] values('Raju','Kodam','13-07-1996',1,1,'505301',1,1,'Hindu'1,1,1,1,1,1,1,'Right Hand',1,1,1)
+
+create table [MaritalStatus](
+[MaritalStatusId] [int]primary key,
+[MaritalStatusType][varchar](max))
+
+insert into [MaritalStatus] values('Married')
+insert into [MaritalStatus] values('UnMarried')
+
+create table [Guardian](
+[GuardianId][int] primary key idenity(1,1),
+[FirstName] [varchar](max) null,
+[LastName] [varchar](max)null,
+[DOB] [date]null,
+[GenderId][int]null,
+[ContactNumberId][bigint]null,
+[E-MailId][varchar](max)null,
+[AddressId][varchar](max)null,
+[CountryId][int]null,
+[StateId][int]null,
+[DistrictId][int]null,
+[IdentificationMarks][varchar]null,
+[Occupation][varchar](max)null,
+[Income][int]null, 
+[PinCode][int]null,
+[BloodGroupId][varchar](max)null,
+[PersonId][int])
+
+insert into [PersonDetails] values('Raju','Kodam','13-07-1996',1,1,1,1,1,1,1,1,'Right Hand','Employee',30000,505301,1,1)
+
+
+create table [EducationDetails](
+[EducationId][int]primary key identity(1,1),
+[EducationTypeId][int]null,
+[Board/UnivercityId][int]null,
+[InstituteNameId][varchar](max)null,
+[MediumId][int](max)null,
+[StartingYear][int]null,
+[EndingYear][int]null,
+[InstituteLocation][varchar](max)null,
+[Percentage][int]null,
+[PersonId][int]null,
+[CourseId][int]null,
+[FeeStructureId][int]null,
+)
+
+insert into [EducationDetails](1,1,1,1,2011,2022,'Sircilla',50,1,1,1)
+
+create table [FeeStructure](
+[FeeStructureId] [int] primary key varhcar(1,1),
+[FeeStructureName][varchar](max),
+[Fee][int],
+[EducationId][int])
+
+insert into [FeeStructure]('AdmissionFee',2000,1)
+insert into [FeeStructure]('Semister',5000,1)
+insert into [FeeStructure]('Condonation',1500,1)
+insert into [FeeStructure]('Transportation',1500,1)
+
+
+
+create table [Results](
+[ResultsId] [int]primary key identity(1,1),
+[ResultsType][varchar](max)null.
+[GradesId][varchar](max))
+
+insert into [Results]('1Semester',1)
+
+create table [Grades](
+[GradesId][int]primary key,identity(1,1)
+[Grade][varchar](max),null,
+)
+insert into [Grades] values('A1')
+insert into [Grades] values('A')
+insert into [Grades] values('B')
+insert into [Grades] values('B1')
+insert into [Grades] values('C')
+insert into [Grades] values('C1')
+insert into [Grades] values('D')
+insert into [Grades] values('D1')
+
+create table [EducationType](
+[EducationTypeId][int] primary key identity(1,1),
+[EducationName][varchar](max)null),
+[EducationId][int])
+
+insert into [EducationType] values('Secondary School Certification',1)
+insert into [EducationType] values('Intermediate',1)
+insert into [EducationType] values('Degree',1)
+insert into [EducationType] values('Diploma',1)
+insert into [EducationType] values('B.Tech',1)
+
+
+create table [Board/Univarcity](
+[Board/UnivarcityId][int] primary key identity(1,1),
+[Board/UnivarcityName][varchar](max),
+[Board/UnivarcityCode][varchar](max),
+[EducationId][int])
+
+insert into [Board/Univarcity] values('Board Of Secondary Education',1)
+insert into [Board/Univarcity] values('Board Of Intermediate Education',2)
+insert into [Board/Univarcity] values('Board Of Technical Education',4)
+insert into [Board/Univarcity] values('JNTUH',5)
+
+create table [Institute](
+[InstituteId][int] primary key identity(1,1),
+[InstituteName][varchar](max),
+[InstituteCode][varchar](max),
+[Board/UnivarcityId](max))
+
+
+insert into [Institute] values('ZPHS Sircilla','S678',1)
+insert into [Institute] values('Trinity Junior College','T7808',2)
+insert into [Institute] values('SRR College Of Polytechnic','SRRP',3)
+insert into [Institute] values('Vaageswari College of Engineering','VGSE',4)
+
+create table [Course](
+[CourseId] [int] primary key identity(1,1),
+[CourseName][varchar](max),
+[CourseCode][varchar](max),
+[InstituteId][int])
+
+insert into [Course] values('MPC','05',2)
+insert into [Course] values('MECH','03',4)
+
+create table [Medium](
+[MediumId] [int] primary key identity(1,1),
+[MediumName][varchar](max),
+[EducationId][int])
+
+insert into [Medium] values ('Telugu',1)
+insert into [Medium] values ('English',1)
+insert into [Medium] values ('Hindi',1)
+
+create tabel [ContactNumber](
+[ContactNumberId][int]primary key (1,1),
+[isPermanentNumber][bit],
+[isAlternateNUmber][bit],
+[PersonId][int])
+
+insert into [ContactNumber](1,0,1)
+
+
+
+
+
+
+create table [Gender](
+[GenderId] [int] primary key identity(1,1)not null,
+[GenderName] [varchar]null,
+[PersonId] [int]not null)
+  
+insert into [Gender] values('Male',1)
+insert into [Gender] values('FeMale',1)
+insert into [Gender] values('Others',1)
+
+create table [Nationality](
+[NationalityId][int] primary key identity(1,1)not null,
+[NationalityName][varchar]null,
+[PersonId] [int]not null)
+
+
+
+insert into [Nationality] values('Indian',1)
+insert into [Nationality] values('Afghan',1)
+insert into [Nationality] values('Bangladeshi',1)
+insert into [Nationality] values('American',1)
+insert into [Nationality] values('Cambodian',1)
+insert into [Nationality] values('Ecuadorean',1)
+
+
+create table [MotherTounge](
+[MotherToungeId][int] primary key identity(1,1)not null,
+[MotherToungeName][varchar]null,
+[PersonId] [int]not null)
+
+
+insert into [MotherTounge]values('Telugu',1)
+insert into [MotherTounge]values('Hindi',1)
+insert into [MotherTounge]values('French',1)
+insert into [MotherTounge]values('English',1)
+insert into [MotherTounge]values('Arabic',1)
+insert into [MotherTounge]values('German',1)
+
+
+create table [Religion](
+[ReligionId][int] primary key identity(1,1)not null,
+[ReligionName][varchar]null,
+[PersonId] [int]not null)
+
+insert into [Religion]values('HINDHU',1)
+insert into [Religion]values('MUSLIM',1)
+insert into [Religion]values('CRISTIAN',1)
+insert into [Religion]values('ARYANS',1)
+insert into [Religion]values('GREEKS',1)
+
+create table [Cast](
+[CastId][int] primary key identity(1,1)not null,
+[CastName][varchar]null,
+[ReligionId][int]not null)
+
+
+insert into [Cast]values('BC',1)
+insert into [Cast]values('OC',1)
+insert into [Cast]values('OBC',1)
+insert into [Cast]values('ST',1)
+
+
+create table [Sub-Cast](
+[Sub-CastId][int] primary key identity(1,1)not null,
+[Sub-CastName][varchar]null,
+[CastId][int]not null)
+
+
+
+insert into [Sub-Cast]values('BC-B',1)
+insert into [Sub-Cast]values('BC-D',1)
+insert into [Sub-Cast]values('OC',1)
+insert into [Sub-Cast]values('OBC-Balasanthu',1)
+insert into [Sub-Cast]values('OBC-Bahurupi',1)
+insert into [Sub-Cast]values('Bazigar',1)
+insert into [Sub-Cast]values('Bangali',1)
+
+create table [Continent](
+[ContinentId][int] primary key,
+[PersonId] [int]not null)
+
+
+insert into [Continent] values('Africa',1)
+insert into [Continent] values('Antarctica',1)
+insert into [Continent] values('Asia',1)
+insert into [Continent] values('North America',1)
+
+
+create table [Country](
+[CountryId][int] primary key identity(1,1)not null,
+[CountryName][varchar]null,
+[ContinentId][int]not null)
+
+insert into [Country] values('Kenya'1)
+insert into [Country] values('Newziland'2)
+insert into [Country] values('India'3)
+insert into [Country] values('Canada'4)
+
+create table [State](
+[StateId][int] primary key identity(1,1)not null,
+[StateName][varchar]null,
+[CountryId][int]not null)
+
+
+insert into [State] values('North Eastern',1)
+insert into [State] values('Auckland',2)
+insert into [State] values('Telangana',3)
+insert into [State] values('Alberta',4)
+
+create table [District](
+[DistrictId][int] primary key identity(1,1)not null,
+[DistrictName][varchar]null,
+[StateId][int]not null)
+
+insert into [District] values('Assam',1)
+insert into [District] values('Blackpool',1)
+insert into [District] values('Rajanna Sircilla',1)
+insert into [District] values('Worsley',1)
+
+create table [PhotoUploadId](
+[PhotoUploadId][int] primary key,
+[PhotoSize][int]null,
+[PersonId] [int]not null)
+
+insert into [PhotoUploadId] values(4*6,1)
+insert into [PhotoUploadId] values(4*3,1)
+
+create table [BloodGroup](
+[BloodGroupId][int] primary key,
+[BloodGroupName][varchar](max)null,
+[PersonId] [int]not null)
+
+insert into [BloodGroup] values('B+',1),
+insert into [BloodGroup] values('O+',1),
+insert into [BloodGroup] values('A+',1),
+insert into [BloodGroup] values('AB',1),
+
+
+create table [E-Mail](
+[E-MailId][int] primary key,
+[isPermanente][bit],
+[isAlternate][bit],
+[PersonId][int])
+
+insert into [E-Mail] values(1,0,1)
+
+create table [Address](
+[AddressId] [int]primary key,
+[StratingAddres][varchar](max),
+[EndingAddres][varchar](max),
+[IsActive][bit],
+[IsinActive][varchar](max),
+[PersonId][int])
+
+insert into [Address] values('9-52 RajeevNagar','9-55 ShanthiNagar',1,0,1)

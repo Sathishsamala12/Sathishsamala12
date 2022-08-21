@@ -1,0 +1,236 @@
+E:\Rajashekar\notes 
+
+{ path: 'PersonAddress', component: PersonAddressComponent },
+  { path: 'UserType', component: UserTypeComponent },
+  { path: '', component: UserTypeComponent },
+  { path: 'CascadingAddress', component: CascadingAddressComponent },
+  { path: 'Course', component: CourseComponent },
+  { path: 'PersonDetails', component: PersonDetailsComponent }, 
+  { path: 'EducationDetails', component: EducationDetailsComponent },
+  { path: 'MarritalStatus', component: MarritalStatusComponent },
+  { path: 'MotherTongue', component: MotherTongueComponent },
+   { path: 'ContactNumber', component: ContactNumberComponent },
+  { path: 'Gender', component: GenderComponent },
+  { path: 'Religion', component: ReligionComponent }, 
+  { path: 'University', component: UniversityComponent },
+  { path: 'ImageUpload', component: ImageUploadComponent },
+  { path: 'CollegeInstitute', component: CollegeInstituteComponent },
+  { path: 'EducationType', component: EducationTypeComponent },
+
+
+	Medium
+    Caste
+    Email
+ 	IdentificationMarks
+	Nationality
+	
+
+javascript validation 
+
+using html,css,bootstrap and javascript(without Angular) 
+create webpage 4 text boxes with validations using google
+
+
+
+[4:58 AM, 7/24/2022] V: Sridhar CSE: 
+using ATI_OESAPI.ATI_OES;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+
+namespace ATI_OESAPI.IREPOSITORY
+{
+    public interface IIdentificationMarksRepository
+    {
+        public int AddIdentificationMarks(IdentificationMark identification);
+        
+        public string UpdateIdentificationMarks(IdentificationMark identificationMark);
+        
+        public List<IdentificationMark> GetIdentificationMarks();
+        
+        public IdentificationMark GetIdentificationMarkById(int identificationMarkId);
+        
+        public bool DeleteIdentificationMarks(int identificationMarkId);
+        
+    }
+}
+
+[4:59 AM, 7/24/2022] V: Sridhar CSE: 
+using ATI_OESAPI.ATI_OES;
+using ATI_OESAPI.IREPOSITORY;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+
+namespace ATI_OESAPI.REPOSITORY
+{
+    public class IdentificationMarkRepository: IIdentificationMarksRepository
+    {
+
+        ATI_OESContext aTI_OESContext = new ATI_OESContext();
+        public int AddIdentificationMarks(IdentificationMark identification)
+        {
+            var data = aTI_OESContext.IdentificationMarks.Add(identification);
+            aTI_OESContext.SaveChanges();
+            return 1;
+        }
+        public string UpdateIdentificationMarks(IdentificationMark identificationMark)
+        {
+            var data = aTI_OESContext.IdentificationMarks.Where(a => a.IdentificationMarkId == identificationMark.IdentificationMarkId).FirstOrDefault();
+            data.IdentificationMark1 = identificationMark.IdentificationMark1;
+            data.IdentificationMarkId = identificationMark.IdentificationMarkId;
+            aTI_OESContext.SaveChanges();
+            return "Data Updated";
+        }
+        public List<IdentificationMark> GetIdentificationMarks()
+        {
+            List<IdentificationMark> data = aTI_OESContext.IdentificationMarks.ToList();
+            return data;
+        }
+        public IdentificationMark GetIdentificationMarkById(int identificationMarkId)
+        {
+            var data = aTI_OESContext.IdentificationMarks.Where(a => a.IdentificationMarkId== identificationMarkId).FirstOrDefault();
+            return data;
+        }
+        public bool DeleteIdentificationMarks(int identificationMarkId)
+        {
+            var data = aTI_OESContext.IdentificationMarks.Where(a => a.IdentificationMarkId == identificationMarkId).FirstOrDefault();
+            aTI_OESContext.Remove(data);
+            aTI_OESContext.SaveChanges();
+            return true;
+        }
+    }
+}
+
+[4:59 AM, 7/24/2022] V: Sridhar CSE: 
+using ATI_OESAPI.ATI_OES;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+
+namespace ATI_OESAPI.IBUSINESSLOGIC
+{
+   public  interface IIdentificationMarksBusinessLogic
+    {
+        public int AddIdentificationMarks(IdentificationMark identification);
+
+        public string UpdateIdentificationMarks(IdentificationMark identificationMark);
+
+        public List<IdentificationMark> GetIdentificationMarks();
+
+        public IdentificationMark GetIdentificationMarkById(int identificationMarkId);
+
+        public bool DeleteIdentificationMarks(int identificationMarkId);
+
+    }
+}
+
+[5:00 AM, 7/24/2022] V: Sridhar CSE: 
+using ATI_OESAPI.ATI_OES;
+using ATI_OESAPI.IBUSINESSLOGIC;
+using ATI_OESAPI.IREPOSITORY;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+
+namespace ATI_OESAPI.BUSINESSLOGIC
+{
+    public class IdentificationMarksBusinessLogic: IIdentificationMarksBusinessLogic
+    {
+        IIdentificationMarksRepository IdentificationMarksRepository;
+     public   IdentificationMarksBusinessLogic(IIdentificationMarksRepository _IdentificationMarksRepository)
+        {
+            IdentificationMarksRepository = _IdentificationMarksRepository;
+
+        }
+        public int AddIdentificationMarks(IdentificationMark identification)
+        {
+            return IdentificationMarksRepository.AddIdentificationMarks(identification);
+        }
+
+        public string UpdateIdentificationMarks(IdentificationMark identificationMark)
+        {
+            return IdentificationMarksRepository.UpdateIdentificationMarks(identificationMark);
+        }
+        public List<IdentificationMark> GetIdentificationMarks()
+        {
+            return IdentificationMarksRepository.GetIdentificationMarks();
+        }
+        public IdentificationMark GetIdentificationMarkById(int identificationMarkId)
+        {
+            return IdentificationMarksRepository.GetIdentificationMarkById(identificationMarkId);
+        }
+        public bool DeleteIdentificationMarks(int identificationMarkId)
+        {
+            return IdentificationMarksRepository.DeleteIdentificationMarks(identificationMarkId);
+        }
+
+    }
+}
+
+[5:07 AM, 7/24/2022] V: Sridhar CSE:
+using ATI_OESAPI.ATI_OES;
+using ATI_OESAPI.IBUSINESSLOGIC;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+
+namespace ATI_OESAPI.Controllers
+{
+    [Route("api/[controller]")]
+    [ApiController]
+    public class IdentificationMarks : ControllerBase
+    {
+
+        IIdentificationMarksBusinessLogic IdentificationMarksBusinessLogic;
+
+        IdentificationMarks(IIdentificationMarksBusinessLogic _IdentificationMarksBusinessLogic)
+        {
+            IdentificationMarksBusinessLogic = _IdentificationMarksBusinessLogic;
+        }
+
+        [Route("api/AddIdentificationMarks")]
+        [HttpPost]
+        public int AddIdentificationMarks(IdentificationMark identification)
+        {
+            return IdentificationMarksBusinessLogic.AddIdentificationMarks(identification);
+        }
+
+        [Route("api/UpdateIdentificationMarks")]
+        [HttpPut]
+        public string UpdateIdentificationMarks(IdentificationMark identificationMark)
+        {
+            return IdentificationMarksBusinessLogic.UpdateIdentificationMarks(identificationMark);
+        }
+
+        [Route("api/GetIdentificationMarks")]
+        [HttpGet]
+        public List<IdentificationMark> GetIdentificationMarks()
+        {
+            return IdentificationMarksBusinessLogic.GetIdentificationMarks();
+        }
+
+        [Route("api/GetIdentificationMarkById/{identificationMarkId}")]
+        [HttpGet]
+        public IdentificationMark GetIdentificationMarkById(int identificationMarkId)
+        {
+            return IdentificationMarksBusinessLogic.GetIdentificationMarkById(identificationMarkId);
+        }
+
+        [Route("api/DeleteIdentificationMarks/{identificationMarkId}")]
+        [HttpDelete]
+        public bool DeleteIdentificationMarks(int identificationMarkId)
+        {
+            return IdentificationMarksBusinessLogic.DeleteIdentificationMarks(identificationMarkId);
+        }
+
+
+    }
+}

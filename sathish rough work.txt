@@ -1,0 +1,65 @@
+byte[]
+
+Cores CORE//
+  app.UseCors(X => X
+            .AllowAnyMethod()
+            .AllowAnyHeader()
+            .SetIsOriginAllowed(origin => true)
+            .AllowCredentials());
+
+https://laratutorials.com/datatable-print-export-to-csv-excel-pdf-angular-12/  --Exel,Pdf,search
+
+https://bearnithi.com/2019/05/25/add-remove-multiple-input-fields-dynamically-template-driven-angular/
+
+https://forum.ionicframework.com/t/angular-9-ngcc-fails-with-an-unhandled-exception-solution/209047
+
+https://github.com/fullcalendar/fullcalendar-example-projects/tree/33c9461c24cb80550e4339ec7597d8b9c8529314/angular13
+
+https://github.com/primefaces/primeng/tree/master/src/app/showcase/components
+https://docs.microsoft.com/en-us/aspnet/core/fundamentals/dependency-injection?view=aspnetcore-5.0    
+
+asp.net core 5 web api response json naming pascal case conversion 
+http://www.binaryintellect.net/articles/a1e0e49e-d4d0-4b7c-b758-84234f14047b.aspx
+
+ services.AddControllers()
+            .AddJsonOptions(options =>
+                {
+                    options.JsonSerializerOptions
+.PropertyNamingPolicy = null;
+                });
+
+fontawesomeicons
+
+LAPTOP-GI8NP686\SQLEXPRESS
+
+Scaffold-DbContext "Server=LAPTOP-GI8NP686\SQLEXPRESS;Database=Twallet;Trusted_Connection=True;" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models
+
+
+
+Install-Package Microsoft.EntityFrameworkCore.SqlServer
+
+Install-Package Microsoft.EntityFrameworkCore.Tools-Pre
+
+Install-Package Microsoft.EntityFrameworkCore.SqlServer.Design
+
+
+ "node_modules/bootstrap/dist/css/bootstrap.min.css",
+
+//script
+"node_modules/bootstrap/dist/js/bootstrap.js",
+
+https://fontawesome.com/v4/icon/id-card-o
+
+
+TwalletUI
+
+UserId	FirstName	LastName	Dob	MobileNumber	Email	Profile Photo	Actions
+
+TwalletUI
+
+UserId	FirstName	LastName	Dob	MobileNumber	Email	Profile Photo	Actions
+27	Sathish	dfg	2022-07-10T00:00:00	5468856897	fdgfdh@gmail.com		EditDelete
+43	Dhroupadhi	Murmu	2022-08-04T00:00:00	45768794567	president.india@gmail.com		EditDelete
+44	Sathish	Samala	2022-08-05T00:00:00	8145475676	president.india@gmail.com		EditDelete
+45	Sathish	Samala	2022-08-29T00:00:00	8145475676	mkrnf@gmail.com		EditDelete
+48	Sathish	dfg	2022-08-13T00:00:00	8145475676	fdhjkl		EditDelete
